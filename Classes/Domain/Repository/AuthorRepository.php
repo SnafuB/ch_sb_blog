@@ -1,12 +1,11 @@
 <?php
-namespace Dawin\ChSbBlog\Controller;
+namespace Dawin\TouverBlog\Domain\Repository;
 
 /***************************************************************
  *
  *  Copyright notice
  *
- *  (c) 2016 BOURDIER Stéphane <steph63b@hotmail.fr>
- *           HOARAU Christophe <chris.hoarau@hotmail.fr>
+ *  (c) 2016
  *
  *  All rights reserved
  *
@@ -28,32 +27,16 @@ namespace Dawin\ChSbBlog\Controller;
  ***************************************************************/
 
 /**
- * AuthorController
+ * The repository for Authors
  */
-class AuthorController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class AuthorRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 
     /**
-     * authorRepository
-     *
-     * @var \Dawin\ChSbBlog\Domain\Repository\authorRepository
-     * @inject
+     * @var array
      */
-    public function listAction()
-    {
-        $authors = $this->authorRepository->findAll();
-        $this->view->assign('authors', $authors);
-    }
-    
-    /**
-     * action show
-     *
-     * @param \Dawin\ChSbBlog\Domain\Model\Author $author
-     * @return void
-     */
-    public function showAction(\Dawin\ChSbBlog\Domain\Model\Author $author)
-    {
-        $this->view->assign('author', $author);
-    }
+    protected $defaultOrderings = array(
+        'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+    );
 
 }
