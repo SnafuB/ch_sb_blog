@@ -1,0 +1,17 @@
+
+<label for="title">
+	<f:translate key="tx_chsbblog_domain_model_comment.title" />
+</label><br />
+	<f:form.textfield property="title" /><br />
+<label for="context">
+	<f:translate key="tx_chsbblog_domain_model_comment.context" />
+</label><br />
+	<f:form.textfield property="context" /><br />
+<label for="userName">
+	<f:translate key="tx_chsbblog_domain_model_comment.user_name" />
+</label><br />
+	<f:form.textfield property="userName" /><br />
+<label for="publicationDate">
+	<f:translate key="tx_chsbblog_domain_model_comment.publication_date" />
+</label><br />
+	<f:form.textfield property="publicationDate"  value="{comment.publicationDate->f:format.date()}" /><br />
