@@ -1,5 +1,5 @@
 <?php
-namespace Dawin\TouverBlog\Domain\Repository;
+namespace Dawin\ChSbBlog\Domain\Repository;
 
 /***************************************************************
  *

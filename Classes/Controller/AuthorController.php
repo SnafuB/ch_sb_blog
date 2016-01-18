@@ -40,7 +40,7 @@ class AuthorController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @inject
      */
     protected $authorRepository = NULL;
-
+    
     /**
      * action list
      *

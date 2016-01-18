@@ -57,7 +57,7 @@ class AuthorControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
 		$allAuthors = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array(), array(), '', FALSE);
 
-		$authorRepository = $this->getMock('', array('findAll'), array(), '', FALSE);
+		$authorRepository = $this->getMock('Dawin\\ChSbBlog\\Domain\\Repository\\AuthorRepository', array('findAll'), array(), '', FALSE);
 		$authorRepository->expects($this->once())->method('findAll')->will($this->returnValue($allAuthors));
 		$this->inject($this->subject, 'authorRepository', $authorRepository);
 

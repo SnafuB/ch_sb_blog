@@ -1,7 +1,6 @@
 <?php
 namespace Dawin\ChSbBlog\Controller;
 
-
 /***************************************************************
  *
  *  Copyright notice
