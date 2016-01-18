@@ -17,23 +17,25 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 
-<ul>
-	<li><f:translate key="tx_chsbblog_domain_model_category.name" /></li>
-	<li><f:translate key="tx_chsbblog_domain_model_category.description" /></li>
-	<li> </li>
-	<li> </li>
+<ul class="list-group">
+	<li class="list-group-item">
+		<f:translate key="tx_chsbblog_domain_model_category.name" />
+		<f:translate key="tx_chsbblog_domain_model_category.description" />
+	</li>
 </ul>
 
-<div class="list-group">
-	<f:for each="{categories}" as="category">
-		<ul class="list-group-item">
-			<li><f:link.action action="show" arguments="{category : category}"> {category.name}</f:link.action></li>
-			<li><f:link.action action="show" arguments="{category : category}"> {category.description}</f:link.action></li>
-			<li><f:link.action action="edit" arguments="{category : category}">Edit</f:link.action></li>
-			<li><f:link.action action="delete" arguments="{category : category}">Delete</f:link.action></li>
-		</ul>
-	</f:for>
+<div>
+	<ul class="list-group">
+		<f:for each="{categories}" as="category">
+			<li class="list-group-item">
+				<f:link.action action="show" arguments="{category : category}"> {category.name}</f:link.action>
+				<f:link.action action="show" arguments="{category : category}"> {category.description}</f:link.action>
+				<f:link.action action="edit" arguments="{category : category}">Edit</f:link.action>
+				<f:link.action action="delete" arguments="{category : category}">Delete</f:link.action>
+			</li>
+		</f:for>
+	</ul>
 </div>
 
-<f:link.action action="new">New Category</f:link.action>
+<f:link.action action="new" class="btn-primary btn">New Category</f:link.action>
 </f:section>

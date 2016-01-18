@@ -18,28 +18,30 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:flashMessages />
 
 <table  class="tx_chsbblog" >
-	<tr>
-		<th><f:translate key="tx_chsbblog_domain_model_post.title" /></th>
-		<th><f:translate key="tx_chsbblog_domain_model_post.publication_date" /></th>
-		<th><f:translate key="tx_chsbblog_domain_model_post.summary" /></th>
-		<th><f:translate key="tx_chsbblog_domain_model_post.content" /></th>
-		<th><f:translate key="tx_chsbblog_domain_model_post.image" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
+	<ul class="list-group">
+		<li class="list-group-item">
+			<f:translate key="tx_chsbblog_domain_model_post.title" />
+			<f:translate key="tx_chsbblog_domain_model_post.publication_date" />
+			<f:translate key="tx_chsbblog_domain_model_post.summary" />
+			<f:translate key="tx_chsbblog_domain_model_post.content" />
+			<f:translate key="tx_chsbblog_domain_model_post.image" /> 
+		</li>
+	</ul>
 
 	<f:for each="{posts}" as="post">
-		<tr>
-			<td><f:link.action action="show" arguments="{post : post}"> {post.title}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{post : post}"> {post.publicationDate -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{post : post}"> {post.summary}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{post : post}"> {post.content}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{post : post}"> {post.image.originalResource.name}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{post : post}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{post : post}">Delete</f:link.action></td>
-		</tr>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<f:link.action action="show" arguments="{post : post}"> {post.title}</f:link.action>
+				<f:link.action action="show" arguments="{post : post}"> {post.publicationDate -> f:format.date()}</f:link.action>
+				<f:link.action action="show" arguments="{post : post}"> {post.summary}</f:link.action>
+				<f:link.action action="show" arguments="{post : post}"> {post.content}</f:link.action>
+				<f:link.action action="show" arguments="{post : post}"> {post.image.originalResource.name}</f:link.action>
+				<f:link.action action="edit" arguments="{post : post}">Edit</f:link.action>
+				<f:link.action action="delete" arguments="{post : post}">Delete</f:link.action>
+			</li>
+		</ul>
 	</f:for>
 </table>
 
-<f:link.action action="new">New Post</f:link.action>
+<f:link.action action="new" class="btn-primary btn">New Post</f:link.action>
 </f:section>
