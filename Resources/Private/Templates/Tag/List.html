@@ -28,12 +28,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<ul class="list-group">
 			<li class="list-group-item">
 				<f:link.action action="show" arguments="{tag : tag}"> {tag.title}</f:link.action>
-				<f:link.action action="edit" arguments="{tag : tag}">Edit</f:link.action>
 				<f:link.action action="delete" arguments="{tag : tag}">Delete</f:link.action>
 			</li>
 		</ul>
 	</f:for>
 </table>
 
-<f:link.action action="new" class="btn-primary btn">New Tag</f:link.action>
 </f:section>

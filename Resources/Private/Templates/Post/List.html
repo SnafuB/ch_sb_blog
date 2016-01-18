@@ -36,12 +36,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 				<f:link.action action="show" arguments="{post : post}"> {post.summary}</f:link.action>
 				<f:link.action action="show" arguments="{post : post}"> {post.content}</f:link.action>
 				<f:link.action action="show" arguments="{post : post}"> {post.image.originalResource.name}</f:link.action>
-				<f:link.action action="edit" arguments="{post : post}">Edit</f:link.action>
 				<f:link.action action="delete" arguments="{post : post}">Delete</f:link.action>
 			</li>
 		</ul>
 	</f:for>
 </table>
 
-<f:link.action action="new" class="btn-primary btn">New Post</f:link.action>
 </f:section>
