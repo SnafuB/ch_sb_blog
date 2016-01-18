@@ -5,10 +5,10 @@ This Template is responsible for creating a table of domain objects.
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
+Resources:
+Private:
+Templates:
+List.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
@@ -17,29 +17,53 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 
-<table  class="tx_chsbblog" >
-	<ul class="list-group">
-		<li class="list-group-item">
-			<f:translate key="tx_chsbblog_domain_model_author.first_name" />
-			<f:translate key="tx_chsbblog_domain_model_author.last_name" />
-			<f:translate key="tx_chsbblog_domain_model_author.user_name" />
-			<f:translate key="tx_chsbblog_domain_model_author.presentation" />
-			<f:translate key="tx_chsbblog_domain_model_author.image" />
-		</li>
-	</ul>
-
-	<f:for each="{authors}" as="author">
-		<ul class="list-group">
-			<li class="list-group-item">
-				<f:link.action action="show" arguments="{author : author}"> {author.firstName}</f:link.action>
-				<f:link.action action="show" arguments="{author : author}"> {author.lastName}</f:link.action>
-				<f:link.action action="show" arguments="{author : author}"> {author.userName}</f:link.action>
-				<f:link.action action="show" arguments="{author : author}"> {author.presentation}</f:link.action>
-				<f:link.action action="show" arguments="{author : author}"> {author.image.originalResource.name}</f:link.action>
-				<f:link.action action="delete" arguments="{author : author}">Delete</f:link.action>
-			</li class="list-group-item">
-		</ul>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_author.first_name" />
+				</div>
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_author.last_name" />
+				</div>
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_author.user_name" />
+				</div>
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_author.presentation" />
+				</div>
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_author.image" />
+				</div>
+				<div class="col-md-2">
+					Action
+				</div>
+			</div>
+		</div>
+		<f:for each="{authors}" as="author">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<f:link.action action="show" arguments="{author : author}"> {author.firstName} </f:link.action>
+				</div>
+				<div class="col-md-2">
+					<f:link.action action="show" arguments="{author : author}"> {author.lastName} </f:link.action>
+				</div>
+				<div class="col-md-2">
+					<f:link.action action="show" arguments="{author : author}"> {author.userName} </f:link.action>
+				</div>
+				<div class="col-md-2">
+					<f:link.action action="show" arguments="{author : author}"> {author.presentation} </f:link.action>
+				</div>
+				<div class="col-md-2">
+					<img src="fileadmin/user_upload/{author.image.originalResource.name}" width="120" height="120" />
+				</div>
+				<div class="col-md-2">
+					<f:link.action action="delete" arguments="{author : author}">Delete</f:link.action>
+				</div>
+			</div>
+		</div>
 	</f:for>
-</table>
+</div>
 
 </f:section>

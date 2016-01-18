@@ -10,23 +10,30 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
 <h1>Listes des Tags</h1>
 <f:flashMessages />
-<!-- <table  class="tx_chsbblog" >
-		<ul class="list-group">
-				<li class="list-group-item">
-						<f:translate key="tx_chsbblog_domain_model_tag.title" />
-				</li>
-		</ul>
-</table> -->
-<!-- <f:link.action action="delete" arguments="{tag : tag}">Delete</f:link.action> -->
 
-
-<f:for each="{tags}" as="tag">
-<ul class="list-group">
-	<li class="list-group-item">
-		<f:link.action action="show" arguments="{tag : tag}"> {tag.title}</f:link.action>
-		<f:link.action action="delete" arguments="{tag : tag}">Supprimer</f:link.action>
-	</li>
-</ul>
-</f:for>
+<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-6">
+					Titre
+				</div>
+				<div class="col-md-6">
+					Action
+				</div>
+			</div>
+		</div>
+		<f:for each="{tags}" as="tag">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-6">
+					<f:link.action action="show" arguments="{tag : tag}"> {tag.title}</f:link.action>
+				</div>
+				<div class="col-md-6">
+					<f:link.action action="delete" arguments="{tag : tag}">Delete</f:link.action>
+				</div>
+			</div>
+		</div>
+	</f:for>
+</div>
 
 </f:section>

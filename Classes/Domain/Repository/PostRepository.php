@@ -32,6 +32,12 @@ namespace Dawin\ChSbBlog\Domain\Repository;
  */
 class PostRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+	public function findByTag(\Dawin\ChSbBlog\Domain\Model\Tag $tag)
+	{
+		$query = $this->createQuery();
 
-    
+		return $query
+			->matching($query->contains('tags', array($tag)))
+			->execute();
+	}
 }

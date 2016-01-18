@@ -40,6 +40,14 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * @inject
      */
     protected $tagRepository = NULL;
+
+    /**
+     * postRepository
+     *
+     * @var \Dawin\ChSbBlog\Domain\Repository\PostRepository
+     * @inject
+     */
+    protected $postRepository = NULL;
     
     /**
      * action list
@@ -48,10 +56,6 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function listAction()
     {
-        if(isset($_POST["tagChoice"]))
-        {
-            var_dump($_POST["tagChoice"]);
-        }
         $tags = $this->tagRepository->findAll();
         $this->view->assign('tags', $tags);
     }
@@ -64,6 +68,9 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function showAction(\Dawin\ChSbBlog\Domain\Model\Tag $tag)
     {
+        $tagPosts = $this->postRepository->findByTag($tag);
         $this->view->assign('tag', $tag);
+        $this->view->assign('tagPosts', $tagPosts);
+
     }
 }

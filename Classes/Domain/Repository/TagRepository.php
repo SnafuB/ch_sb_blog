@@ -32,6 +32,28 @@ namespace Dawin\ChSbBlog\Domain\Repository;
  */
 class TagRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+// 	public function findAllWithPosts() {
+// 		$query = $this->createQuery();
+// 		$query->setOrderings(array(
+// 			'publicationDate' => 'DESC',
+// 		));
+		
+// 		$queryParser = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Storage\\Typo3DbQueryParser');
+// 		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($queryParser->parseQuery($query));
+// 		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($query->getQuerySettings());
+		
+// 		return $query->execute();
+// 	}
 
+// 	public function findMatchingOrganizationAndRegion(Tx_SjrOffers_Domain_Model_Organization $organization, Tx_SjrOffers_Domain_Model_Region $region) {
+//     $query = $this->createQuery();
+//     $query->matching(
+//         $query->logicalAnd(
+//             $query->equals('organization', $organization),
+//             $query->contains('regions', $region)
+//         )
+//     )
+//     return $query->execute();
+// }
     
 }
