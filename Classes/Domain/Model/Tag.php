@@ -38,7 +38,7 @@ class Tag extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $title = '';
-    
+
     /**
      * Returns the title
      *
@@ -48,7 +48,7 @@ class Tag extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->title;
     }
-    
+
     /**
      * Sets the title
      *

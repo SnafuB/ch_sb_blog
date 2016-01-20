@@ -13,27 +13,39 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Listing for Category</h1>
+<h1>Liste des Category</h1>
 
 <f:flashMessages />
 
-<ul class="list-group">
-	<li class="list-group-item">
-		<f:translate key="tx_chsbblog_domain_model_category.name" />
-		<f:translate key="tx_chsbblog_domain_model_category.description" />
-	</li>
-</ul>
-
-<div>
-	<ul class="list-group">
+<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<f:translate key="tx_chsbblog_domain_model_category.name" />
+				</div>
+				<div class="col-md-4">
+					<f:translate key="tx_chsbblog_domain_model_category.description" />
+				</div>
+				<div class="col-md-4">
+					Action
+				</div>
+			</div>
+		</div>
 		<f:for each="{categories}" as="category">
-			<li class="list-group-item">
-				<f:link.action action="show" arguments="{category : category}"> {category.name}</f:link.action>
-				<f:link.action action="show" arguments="{category : category}"> {category.description}</f:link.action>
-				<f:link.action action="delete" arguments="{category : category}">Delete</f:link.action>
-			</li>
-		</f:for>
-	</ul>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-4">
+					<f:link.action action="show" arguments="{category : category}"> {category.name}</f:link.action>
+				</div>
+				<div class="col-md-4">
+					<f:link.action action="show" arguments="{category : category}"> {category.description}</f:link.action>
+				</div>
+				<div class="col-md-4">
+					<f:link.action action="delete" arguments="{category : category}">Delete</f:link.action>
+				</div>
+			</div>
+		</div>
+	</f:for>
 </div>
 
 </f:section>

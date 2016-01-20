@@ -32,28 +32,26 @@ namespace Dawin\ChSbBlog\Domain\Repository;
  */
 class TagRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-// 	public function findAllWithPosts() {
-// 		$query = $this->createQuery();
-// 		$query->setOrderings(array(
-// 			'publicationDate' => 'DESC',
-// 		));
-		
-// 		$queryParser = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Storage\\Typo3DbQueryParser');
-// 		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($queryParser->parseQuery($query));
-// 		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($query->getQuerySettings());
-		
-// 		return $query->execute();
-// 	}
+	public function tagWithPosts($tag){
+    	$query = $this->createQuery();
+        $query->statement("SELECT T.uid as TagUid, T.title as TagTitle, P.uid as PostUid, P.title as PostTitle
+        					FROM tx_chsbblog_domain_model_tag T INNER JOIN tx_chsbblog_domain_model_post P
+        					ON T.uid = P.tags
+        					AND  T.uid = $tag");
 
-// 	public function findMatchingOrganizationAndRegion(Tx_SjrOffers_Domain_Model_Organization $organization, Tx_SjrOffers_Domain_Model_Region $region) {
-//     $query = $this->createQuery();
-//     $query->matching(
-//         $query->logicalAnd(
-//             $query->equals('organization', $organization),
-//             $query->contains('regions', $region)
-//         )
-//     )
-//     return $query->execute();
-// }
-    
+        return $query->execute();
+    }
+
+    public function allTags(){
+    	$query = $this->createQuery();
+        $query->statement("SELECT uid, title, crdate FROM tx_chsbblog_domain_model_tag");
+
+        return $query->execute();
+    }
+    public function findByTags($tag) {
+	    $query = $this->createQuery();
+	    $query->matching($query->equals('uid', $tag));
+	    return $query->execute();
+	}
+
 }

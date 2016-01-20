@@ -13,33 +13,57 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Listing for Post</h1>
+<h1>Liste des Posts</h1>
 
 <f:flashMessages />
 
-<table  class="tx_chsbblog" >
-	<ul class="list-group">
-		<li class="list-group-item">
-			<f:translate key="tx_chsbblog_domain_model_post.title" />
-			<f:translate key="tx_chsbblog_domain_model_post.publication_date" />
-			<f:translate key="tx_chsbblog_domain_model_post.summary" />
-			<f:translate key="tx_chsbblog_domain_model_post.content" />
-			<f:translate key="tx_chsbblog_domain_model_post.image" /> 
-		</li>
-	</ul>
-
-	<f:for each="{posts}" as="post">
-		<ul class="list-group">
-			<li class="list-group-item">
-				<f:link.action action="show" arguments="{post : post}"> {post.title}</f:link.action>
-				<f:link.action action="show" arguments="{post : post}"> {post.publicationDate -> f:format.date()}</f:link.action>
-				<f:link.action action="show" arguments="{post : post}"> {post.summary}</f:link.action>
-				<f:link.action action="show" arguments="{post : post}"> {post.content}</f:link.action>
-				<f:link.action action="show" arguments="{post : post}"> {post.image.originalResource.name}</f:link.action>
-				<f:link.action action="delete" arguments="{post : post}">Delete</f:link.action>
-			</li>
-		</ul>
+<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_post.title" />
+				</div>
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_post.publication_date" />
+				</div>
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_post.summary" />
+				</div>
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_post.content" />
+				</div>
+				<div class="col-md-2">
+					<f:translate key="tx_chsbblog_domain_model_post.image" />
+				</div>
+				<div class="col-md-2">
+					Action
+				</div>
+			</div>
+		</div>
+		<f:for each="{posts}" as="post">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<f:link.action action="show" arguments="{post : post}"> {post.title}</f:link.action>
+				</div>
+				<div class="col-md-2">
+					<f:link.action action="show" arguments="{post : post}"> {post.publicationDate -> f:format.date()}</f:link.action>
+				</div>
+				<div class="col-md-2">
+					<f:link.action action="show" arguments="{post : post}"> {post.summary}</f:link.action>
+				</div>
+				<div class="col-md-2">
+					<f:link.action action="show" arguments="{post : post}"> {post.content}</f:link.action>
+				</div>
+				<div class="col-md-2">
+					<f:link.action action="show" arguments="{post : post}"> {post.image.originalResource.name}</f:link.action>
+				</div>
+				<div class="col-md-2">
+					<f:link.action action="delete" arguments="{post : post}">Delete</f:link.action>
+				</div>
+			</div>
+		</div>
 	</f:for>
-</table>
+</div>
 
 </f:section>

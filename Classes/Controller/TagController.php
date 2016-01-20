@@ -32,7 +32,6 @@ namespace Dawin\ChSbBlog\Controller;
  */
 class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
-
     /**
      * tagRepository
      *
@@ -48,7 +47,7 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * @inject
      */
     protected $postRepository = NULL;
-    
+
     /**
      * action list
      *
@@ -59,7 +58,7 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $tags = $this->tagRepository->findAll();
         $this->view->assign('tags', $tags);
     }
-    
+
     /**
      * action show
      *
@@ -68,9 +67,12 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function showAction(\Dawin\ChSbBlog\Domain\Model\Tag $tag)
     {
-        $tagPosts = $this->postRepository->findByTag($tag);
-        $this->view->assign('tag', $tag);
-        $this->view->assign('tagPosts', $tagPosts);
+        $postRepository = $this->objectManager->get('Dawin\ChSbBlog\Domain\Repository\PostRepository');
+        $tagPosts = $postRepository->findByTags($tag->getUid());
 
+        $this->view->assignMultiple(array(
+            'tag' => $tag,
+            'posts' => $tagPosts,
+        ));
     }
 }

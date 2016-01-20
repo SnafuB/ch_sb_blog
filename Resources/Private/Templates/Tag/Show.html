@@ -1,22 +1,66 @@
-
 <f:layout name="Default" />
-
 This Template is responsible for displaying a single view for a domain object
-
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Show.html: keep
-
+Resources:
+Private:
+Templates:
+Show.html: keep
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
-<h1>Single View for Tag</h1>
+<div class="container">
+	<h1>Détails de {tag.title}</h1>
 
-<f:flashMessages />
-<f:render partial="Tag/Properties" arguments="{tag:tag}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Tag</f:link.action>
-</f:section>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-2">
+				<f:link.action action="list">Back to list</f:link.action><br />
+			</div>
+			<div class="col-md-2">
+				<f:link.action action="new">New Tag</f:link.action>
+			</div>
+			<div class="col-md-offset-8">
+			</div>
+		</div>
+	</div>
+
+	<b>Listes des posts qui sont associé à ce tag :</b>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-3">
+				<f:translate key="tx_chsbblog_domain_model_post.title" />
+			</div>
+			<div class="col-md-3">
+				<f:translate key="tx_chsbblog_domain_model_post.summary" />
+			</div>
+			<div class="col-md-3">
+				<f:translate key="tx_chsbblog_domain_model_post.content" />
+			</div>
+			<div class="col-md-3">
+				<f:translate key="tx_chsbblog_domain_model_post.image" />
+			</div>
+		</div>
+	</div>
+
+	<f:for each="{posts}" as="post">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-3">
+				<f:link.action action="show" arguments="{post : post}"> {post.title} </f:link.action>
+			</div>
+			<div class="col-md-3">
+				{post.summary}
+			</div>
+			<div class="col-md-3">
+				{post.content}
+			</div>
+			<div class="col-md-3">
+				<img src="fileadmin/user_upload/{post.image.originalResource.name}" width="120" height="120" />
+			</div>
+		</div>
+	</div>
+	</f:for>
+
+	<f:flashMessages />
+	</f:section>
